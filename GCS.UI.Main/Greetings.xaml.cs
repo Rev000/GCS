@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GCS
+
+namespace GCS.UI.Main
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
