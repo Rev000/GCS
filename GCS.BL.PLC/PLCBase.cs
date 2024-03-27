@@ -112,7 +112,7 @@ namespace GCS.BL.PLC
                 {
                     lock (lockObject)
                     {
-                        errorCode = siemens.Write(address, obj);
+                        siemens.Write(address, obj);
                     }
                 }
                 else
