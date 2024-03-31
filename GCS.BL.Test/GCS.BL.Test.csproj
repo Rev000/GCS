@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -9,11 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.17" />
-    <PackageReference Include="S7netplus" Version="0.20.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\GCS.CL.Net\GCS.CL.Net.csproj" />
   </ItemGroup>
 
 </Project>

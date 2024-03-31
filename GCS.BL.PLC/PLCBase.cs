@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using log4net;
 using S7.Net;
-
+using GCS.CL.Net;
 
 namespace GCS.BL.PLC
 {
@@ -19,7 +19,7 @@ namespace GCS.BL.PLC
 
         #region "[Properties]"
         public string PLCName { get; set; }
-        protected Plc siemens;
+        protected Plc? siemens;
         protected CpuType cpuType { get; set; }
         protected string ipAddress { get; set; }
         protected short rack { get; set; }
@@ -123,7 +123,7 @@ namespace GCS.BL.PLC
                         && !cts.Token.IsCancellationRequested
                         && TCPUtil.CanConnect(ipAddress, 102))
                     {
-                        while (siemens.Open() != ErrorCode.NoError)
+                        while (siemens.IsConnected)
                         {
                             Debug.WriteLine("Reconnection!");
                             Thread.Sleep(1000);
@@ -165,7 +165,7 @@ namespace GCS.BL.PLC
                           && !cts.Token.IsCancellationRequested
                           && TCPUtil.CanConnect(ipAddress, 102))
                     {
-                        while (siemens.Open() != ErrorCode.NoError)
+                        while (siemens.IsConnected != false)
                         {
                             Debug.WriteLine("Reconnection!");
                             Thread.Sleep(1000);
@@ -207,7 +207,7 @@ namespace GCS.BL.PLC
                     if (TCPUtil.PingCheck(ipAddress)
                           && TCPUtil.CanConnect(ipAddress, 102))
                     {
-                        while (siemens.Open() != ErrorCode.NoError)
+                        while (siemens.IsConnected != false)
                         {
                             Debug.WriteLine("Reconnection!");
                             Thread.Sleep(1000);
@@ -350,7 +350,7 @@ namespace GCS.BL.PLC
                                 string errorYN = string.Empty;
                                 string errorMessage = string.Empty;
 
-                                CBizPLC.BL_POP_SET_INF_PLC_ALARM(AlarmList[i].Item1, alarmBits, out errorYN, out errorMessage);
+                                //CBizPLC.BL_POP_SET_INF_PLC_ALARM(AlarmList[i].Item1, alarmBits, out errorYN, out errorMessage);
 
                                 if (errorYN.Equals("Y"))
                                 {

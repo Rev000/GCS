@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -10,6 +10,12 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.17" />
     <PackageReference Include="S7netplus" Version="0.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GCS.BL.Conv\GCS.BL.Conv.csproj" />
+    <ProjectReference Include="..\GCS.BL.PLC\GCS.BL.PLC.csproj" />
+    <ProjectReference Include="..\GCS.BL.Test\GCS.BL.Test.csproj" />
   </ItemGroup>
 
 </Project>
