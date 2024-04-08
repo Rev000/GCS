@@ -10,11 +10,14 @@ namespace GCS.TL.Test
 {
     class Program
     {
-        static async Task Main()
+        static void Main()
         {
-            ConvData convdata = new ConvData();
+            ConvData convdata = new ConvData { info = "AA", name = "BB" };
+
             InfeedConv conv2 = new InfeedConv(convdata);           
-            Console.WriteLine("c");
+            
+            Console.WriteLine(conv2.Data.info);
+         
         }
     }
 }

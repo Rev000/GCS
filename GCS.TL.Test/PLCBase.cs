@@ -20,7 +20,7 @@ namespace GCS.TL.Test
 
         public required PIO pio;
         public Data data;
-        public virtual void InitSetting();
+        public abstract void InitSetting();
 
         public virtual void Using()
         {
